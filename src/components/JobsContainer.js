@@ -11,7 +11,7 @@ const JobsContainer = () => {
     const dispatch = useDispatch();
     
     useEffect(() => {
-        dispatch(getAllJobs())
+        dispatch(getAllJobs()) 
     }, [page, search, searchStatus, searchType, sort]);
 
     if (isLoading) {

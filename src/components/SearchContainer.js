@@ -13,7 +13,6 @@ const SearchContainer = () => {
         useSelector((store) => store.job);
 
     const dispatch = useDispatch();
-
     const handleSearch = (e) => {
  
         dispatch(handleChange({ name: e.target.name, value: e.target.value}));
@@ -22,7 +21,7 @@ const SearchContainer = () => {
     const debounce = () =>{
         let timeoutID;
         return (e) => {
-            setLocalSearch(e.targer.value)
+            setLocalSearch(e.target.value)
             clearTimeout(timeoutID)
             timeoutID = setTimeout(() => {
                 dispatch(handleChange({ name: e.target.name, value: e.target.value}));

@@ -2,11 +2,11 @@ import customFetch,{checkForUnauthorizedResponse} from "../../untils/axios";
 import authHeader from "../../untils/authHeader";
 
 export const getAllJobsThunk =  async(_,thunkAPI)=>{
-    const { page, search, searchStatus, searchType, sort } = thunkAPI.getState().allJobs
+    const { search, searchStatus, searchType, sort } = thunkAPI.getState().allJobs;
 
-let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}&page=${page}`;
+let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
 if (search) {
-    url = url + `&search=${search}`
+    url = url + `&search=${search}`;
 }
 try {
     const resp = await customFetch.get(url, authHeader(thunkAPI));
